@@ -1,4 +1,4 @@
-#About DAC 
+# About DAC 
 This repository contains the source code used to perform the experimental evaluations in the paper entitled *A Divide-and-Conquer Parallel Pattern Implementation for Multicores*, presented at *SEPS 2016*.
 
 
@@ -15,9 +15,9 @@ and the Strassen algorithm for matrix multiplication. It is important to notice 
 In addition, to compare the pattern based version with third-party algorithms are present hand-made parallelizations of the aforementioned applications (for the merge-sort comparison we used the stable sort implementation provided by Intel [here](https://software.intel.com/en-us/articles/a-parallel-stable-sort-using-c11-for-tbb-cilk-plus-and-openmp)).
 
 
-##Usage
+## Usage
 
-###Required software
+### Required software
 The artifact uses external software. In particular:
 
 * `FastFlow`: a C++ parallel programming framework targeting shared-memory architectures. Website: http://calvados.di.unipi.it/
@@ -25,18 +25,18 @@ The artifact uses external software. In particular:
 
 In the sequel we will provide a brief description for their downloading
 
-####Fastflow
+#### Fastflow
 It is an header-only library. Therefore, it is only required to download it from the website or the SVN. To download the latest version and save it into the fastflow directory, run the following
 command in the shell:
 
     $ svn checkout svn://svn.code.sf.net/p/mc-fastflow/code/ fastflow
 
 
-####Intel Stable Sort
+#### Intel Stable Sort
 The source code can be downloaded at https://software.intel.com/en-us/articles/a-parallel-stable-sort-using-c11-for-tbb-cilk-plus-and-openmp. Once decompressed and compiled it is ready to be used.
 
 
-###Compilation
+### Compilation
 Before compiling the user must provide two diffent environment variables: 
 `FASTFLOW_DIR` that points to the FastFlow library directory and `INTEL_STABLESORT_DIR` that points to the directory that contains the Intel source code (used for the comparison), After that, the code can be compiled. The set of command is the following:
 
@@ -57,5 +57,5 @@ This will produce different executables:
 Each of these programs require certain parameters. To see the right sequence it is sufficient to invoke the program without arguments.
 
 
-For any further information please write at:
+For any further information please write at: dematteis <at> di.unipi.it
 
