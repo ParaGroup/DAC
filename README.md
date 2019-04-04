@@ -56,7 +56,5 @@ This will produce different executables:
 
 Each of these programs require certain parameters. To see the right sequence it is sufficient to invoke the program without arguments.
 
-
-For any further information please write at: dematteis <at> di.unipi.it
-
+# Contributors
 DAC has been developed by [Tiziano De Matteis](mailto:dematteis@di.unipi.it).
