@@ -58,3 +58,6 @@ Each of these programs require certain parameters. To see the right sequence it 
 
 # Contributors
 DAC has been developed by [Tiziano De Matteis](mailto:dematteis@di.unipi.it).
+
+If our work is useful for your research, please cite the following paper:
+ - Marco Danelutto, Tiziano De Matteis, Gabriele Mencagli, and Massimo Torquati. 2016. A divide-and-conquer parallel pattern implementation for multicores. In Proceedings of the 3rd International Workshop on Software Engineering for Parallel Systems (SEPS 2016). ACM, New York, NY, USA, 10-19. DOI: https://doi.org/10.1145/3002125.3002128 
