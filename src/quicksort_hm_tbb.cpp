@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
 
     int num_elem=atoi(argv[1]);
     int nwork=atoi(argv[2]);
-    int *numbers=generateRandomArray(num_elem);
+    auto *numbers=generateRandomArray<int>(num_elem);
 
     tbb::task_scheduler_init _task_scheduler(nwork);		//needed to set par degree
     QuickSort *qs=new (tbb::task::allocate_root())QuickSort(numbers, 0, num_elem-1);
@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr,"Error: array is not sorted!!\n");
 		exit(-1);
     }
-    printf("Time (usecs): %Ld\n",end_t-start_t);
+    printf("Time (usecs): %ld\n",end_t-start_t);
 
     return 0;
 }

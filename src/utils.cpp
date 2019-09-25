@@ -26,32 +26,6 @@
 #include "../includes/utils.h"
 
 using namespace std;
-int *generateRandomArray(int n)
-{
-    srand ((time(0)));
-    int *numbers=new int[n];
-    for(int i=0;i<n;i++)
-        numbers[i]=(int) (rand()) / ((RAND_MAX/MAX_NUM));
-    return numbers;
-}
-void printArray(int *a, int n)
-{
-    for(int i=0;i<n;i++)
-        cout << a[i]<<endl;
-}
-
-//simple check
-bool isArraySorted(int *a, int n)
-{
-    for(int i=1;i<n;i++)
-        if(a[i]<a[i-1])
-            return false;
-    return true;
-}
-
-
-
-
 
 double **generateRandomMatrix(int n)
 {
@@ -139,12 +113,38 @@ double *generateCompactRandomMatrix(int n)
         {
                 matrix[i*n+j]=(double) (rand()) / ((double)(RAND_MAX/MAX_DBL_NUM));
         }
+    }
+    return matrix;
+}
 
+double *generateCompactRowMatrix(int n)
+{
+    double *matrix=allocateCompactMatrix(n);
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+                matrix[i*n+j]=j;
+        }
     }
     return matrix;
 }
 
 
+double *generateCompactColumnMatrix(int n)
+{
+    double *matrix=allocateCompactMatrix(n);
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+                matrix[i*n+j]=i;
+        }
+    }
+    return matrix;
+}
 
 void printCompactMatrix(double *a, int n, int row_stride)
 {

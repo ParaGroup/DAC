@@ -31,7 +31,7 @@
 #include <cstring>
 #include "../includes/utils.h"
 #if USE_FF
-#include <ff/DC.hpp>
+#include <ff/dc.hpp>
 using namespace ff;
 #endif
 #if USE_OPENMP
@@ -152,7 +152,7 @@ int main(int argc, char *argv[])
 	int num_elem=atoi(argv[1]);
 	int nwork=atoi(argv[2]);
 	//generate a random array
-	int *numbers=generateRandomArray(num_elem);
+	auto *numbers=generateRandomArray<int>(num_elem);
 	//fill the vector
 	vector<int> v(numbers, numbers+num_elem ); // use some utility to avoid hardcoding the size here
 
@@ -190,7 +190,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr,"Error: array is not sorted!!\n");
 		exit(-1);
 	}
-	printf("Time (usecs): %Ld\n",end_t-start_t);
+	printf("Time (usecs): %ld\n",end_t-start_t);
 
 	return 0;
 }
