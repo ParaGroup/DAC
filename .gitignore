@@ -1,0 +1,8 @@
+# Objects
+*.o
+
+# Binaries
+*_ff
+*_omp
+*_openmp
+*_tbb

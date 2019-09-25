@@ -27,12 +27,13 @@
  Basic algorithms and definitions can be found in utils.h and utils.cpp
 */
 #include <iostream>
+#include <functional>
+#include <vector>
 #include <stdlib.h>
 #include <omp.h>
-#include <vector>
 #include "../includes/utils.h"
 #if USE_FF
-#include <ff/DC.hpp>
+#include <ff/dc.hpp>
 using namespace ff;
 #endif
 #if USE_OPENMP

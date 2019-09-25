@@ -26,6 +26,12 @@
 #include <time.h>
 #include <sys/time.h>
 
+#ifdef CROSSLANG_RANDOM
+#include "pseudo_random.hpp"
+#endif
+
+using namespace std;
+
 /**
     Array functions
 */
@@ -39,12 +45,37 @@
 const double THRESHOLD = 0.001;
 
 //Array functions
+template<typename T> T *generateRandomArray(int n, int seed){
+#ifdef CROSSLANG_RANDOM
+    pseudo_random random(seed);
+#else
+    srand(seed);
+#endif
+    T *numbers=new T[n];
+    for(int i=0;i<n;i++)
+#ifdef CROSSLANG_RANDOM
+        numbers[i]=random.next_long();
+#else
+        numbers[i]=(T) (rand()) / ((RAND_MAX/MAX_NUM)); // TODO: put the generic limit
+#endif
+    return numbers;
+}
+template<typename T> T *generateRandomArray(int n){
+    return generateRandomArray<T>(n, (int)time(0));
+}
 
-int *generateRandomArray(int n);
-void printArray(int *a, int n);
+template<typename T> void printArray(T *a, int n){
+    for(int i=0;i<n;i++)
+        cout << a[i]<<endl;
+}
 
 //simple check
-bool isArraySorted(int *a,int n);
+template<typename T> bool isArraySorted(T *a, int n){
+    for(int i=1;i<n;i++)
+        if(a[i]<a[i-1])
+            return false;
+    return true;
+}
 
 
 //Matrix function
@@ -54,6 +85,8 @@ double **matmul(double **a, double **b, int n);
 
 //size n*n
 double *generateCompactRandomMatrix(int n);
+double *generateCompactRowMatrix(int n);
+double *generateCompactColumnMatrix(int n);
 void printCompactMatrix(double *a, int n, int row_stride);
 double *compactMatmul(double *a, int rs_a, double *b, int rs_b, int n);
 

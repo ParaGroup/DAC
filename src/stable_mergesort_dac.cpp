@@ -43,7 +43,7 @@
 //library taken from intel stable sort implementation
 #include <pss_common.h>
 #if USE_FF
-#include <ff/DC.hpp>
+#include <ff/dc.hpp>
 using namespace ff;
 #endif
 #if USE_OPENMP
@@ -495,6 +495,6 @@ int main(int argc, char *argv[])
 
 
 
-	printf("Time (usecs): %Ld\n",end_t-start_t);
+	printf("Time (usecs): %ld\n",end_t-start_t);
 
 }

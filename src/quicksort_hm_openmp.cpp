@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
 
     int num_elem=atoi(argv[1]);
     int nwork=atoi(argv[2]);
-    int *numbers=generateRandomArray(num_elem);
+    auto *numbers=generateRandomArray<int>(num_elem);
 
     //build the operand
     //Operand *op=new Operand();
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr,"Error: array is not sorted!!\n");
 		exit(-1);
     }
-    printf("Time (usecs): %Ld\n",end_t-start_t);
+    printf("Time (usecs): %ld\n",end_t-start_t);
 
     return 0;
 }

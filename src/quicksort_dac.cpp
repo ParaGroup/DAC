@@ -28,9 +28,10 @@
 #include <iostream>
 #include <functional>
 #include <algorithm>
+// #define CROSSLANG_RANDOM  // enable the cross-language random generator
 #include "../includes/utils.h"
 #if USE_FF
-#include <ff/DC.hpp>
+#include <ff/dc.hpp>
 using namespace ff;
 #endif
 #if USE_OPENMP
@@ -136,7 +137,7 @@ int main(int argc, char *argv[])
 {
 	if(argc<2)
 	{
-		cerr << "Usage: "<<argv[0]<< " <num_elements> <num_workers>"<<endl;
+		cerr << "Usage: " << argv[0] << " <num_elements> <num_workers> [<seed>]" << endl;
 		exit(-1);
 	}
 	std::function<void(const Operand &,vector<Operand> &)> div(divide);
@@ -146,7 +147,13 @@ int main(int argc, char *argv[])
 
 	int num_elem=atoi(argv[1]);
 	int nwork=atoi(argv[2]);
-	int *numbers=generateRandomArray(num_elem);
+    int seed = argc == 4 ? atoi(argv[3]) : time(0);
+    cout << "Parameters:" << endl
+         << "   num_elem: " << num_elem << endl
+         << "   nwork:    " << nwork    << endl
+         << "   seed:     " << seed     << endl
+         << endl;  
+	auto *numbers=generateRandomArray<int>(num_elem, seed);
 
 	//build the operand
 	//Operand *op=new Operand();
@@ -182,7 +189,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr,"Error: array is not sorted!!\n");
 		exit(-1);
 	}
-	printf("Time (usecs): %Ld\n",end_t-start_t);
+	printf("Time (usecs): %ld\n",end_t-start_t);
 
 	return 0;
 }

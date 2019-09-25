@@ -26,7 +26,7 @@
 #include <vector>
 #include "../includes/utils.h"
 #if USE_FF
-#include <ff/DC.hpp>
+#include <ff/dc.hpp>
 using namespace ff;
 #endif
 #if USE_OPENMP
@@ -129,6 +129,6 @@ int main(int argc, char *argv[])
 #endif
     long end_t=current_time_usecs();
 	printf("Result: %d\n",res);
-	printf("Time (usecs): %Ld\n",end_t-start_t);
+	printf("Time (usecs): %ld\n",end_t-start_t);
 
 }
