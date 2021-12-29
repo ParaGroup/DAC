@@ -1,19 +1,17 @@
 # DAC 
 This repository contains the source code used to perform the experimental evaluations in the paper entitled *A Divide-and-Conquer Parallel Pattern Implementation for Multicores*, presented at *SEPS 2016*.
 
-
 In the repository you can find the applications used for the evaluations and the backend implementation of the Parallel Divide and Conquer pattern in OpenMP, Intel TBB and Fastflow.
 
 The pattern (and related backend implementations) can be used to easily parallelize other Divide and Conquer algorithms. Details on the interface can be found in the paper.
 
-##Applications
+## Applications
 To understand how the pattern works and its interface a basic example for the *n-th* fibonacci number computation is provided.
 
 The main applications used for the evaluation are essentially three: the merge- and quick-sort algorithms
 and the Strassen algorithm for matrix multiplication. It is important to notice that for the three applications the main program is the same for the different backends (can be found under the `src/` folder). The different backends can be selected by using proper compiler directives (`USE_OPENMP` for OpenMP`USE_TBB` for the Intel TBB version and `USE_FF` for the FastFlow version).
 
 In addition, to compare the pattern based version with third-party algorithms are present hand-made parallelizations of the aforementioned applications (for the merge-sort comparison we used the stable sort implementation provided by Intel [here](https://software.intel.com/en-us/articles/a-parallel-stable-sort-using-c11-for-tbb-cilk-plus-and-openmp)).
-
 
 ## Usage
 
@@ -31,10 +29,8 @@ command in the shell:
 
     $ svn checkout svn://svn.code.sf.net/p/mc-fastflow/code/ fastflow
 
-
 #### Intel Stable Sort
 The source code can be downloaded at https://software.intel.com/en-us/articles/a-parallel-stable-sort-using-c11-for-tbb-cilk-plus-and-openmp. Once decompressed and compiled it is ready to be used.
-
 
 ### Compilation
 Before compiling the user must provide two diffent environment variables: 
@@ -56,7 +52,7 @@ This will produce different executables:
 
 Each of these programs require certain parameters. To see the right sequence it is sufficient to invoke the program without arguments.
 
-# How to Cite
+## How to Cite
 If our work is useful for your research, please cite the following paper:
 ```
 @inproceedings{10.1145/3002125.3002128,
@@ -77,5 +73,5 @@ If our work is useful for your research, please cite the following paper:
 }
 ```
 
-# Contributors
+## Contributors
 DAC has been developed by [Tiziano De Matteis](mailto:tdematt@inf.ethz.ch).
